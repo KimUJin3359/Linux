@@ -100,17 +100,6 @@
   - mv : 파일 이동
   - cp : 파일 복사
     - -r : 디렉토리 복사 
-
-| apt | apt-cache | apt-get |
-| --- | --- | --- |
-| apt-cache와 apt-get의 기능을 합친 멍령어 | 패키지 검색, 상세정보 확인 | 패키지 설치, 삭제 |
-
-  - apt install : 패키지 설치
-  - apt list : 전체 패키지 목록 확인
-    - --installed옵션 : 설치된 패키지 확인
-  - apt show "패키지이름" : 패키지 정보 확인
-  - apt purge : 패키지 삭제
-  - apt remove : 설정 파일은 남겨두고, 파일을 삭제
   - echo : 문자열 출력(쉘 스크립트 명령어)
   - cat : 파일 내용을 출력
   - find : 파일을 찾는 명령어 
@@ -124,6 +113,16 @@
   - history : 이전 기록들을 확인
     - ![번호] : 기록된 명령어를 그대로 수행
   - ping : 네트워크 신호 
+  - apt install : 패키지 설치
+  - apt list : 전체 패키지 목록 확인
+    - --installed옵션 : 설치된 패키지 확인
+  - apt show "패키지이름" : 패키지 정보 확인
+  - apt purge : 패키지 삭제
+  - apt remove : 설정 파일은 남겨두고, 파일을 삭제
+
+  | apt | apt-cache | apt-get |
+  | --- | --- | --- |
+  | apt-cache와 apt-get의 기능을 합친 멍령어 | 패키지 검색, 상세정보 확인 | 패키지 설치, 삭제 |
 
 ### Shell
 - 사용자와 커널 사이의 인터페이스
