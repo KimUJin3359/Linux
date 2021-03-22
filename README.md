@@ -123,7 +123,8 @@
 - apt show "패키지이름" : 패키지 정보 확인
 - apt purge : 패키지 삭제
 - apt remove : 설정 파일은 남겨두고, 파일을 삭제
-- apt로 설치한 프로그램은 /usr
+- apt로 설치한 프로그램은 /usr에 설치됨
+
   | apt | apt-cache | apt-get |
   | --- | --- | --- |
   | apt-cache와 apt-get의 기능을 합친 멍령어 | 패키지 검색, 상세정보 확인 | 패키지 설치, 삭제 |
