@@ -206,29 +206,45 @@
 - 그룹에 사용자 제거 : gpasswd -d [계정명] [그룹명]
 
 ### 파일과 소유권
-- 파일의 종류
-  - Regular File
-    - 일반 파일
-    - -로 표기됨
-  - Directory File
-    - 리눅스 내부에서는 디렉토리도 '파일'로 취급
-  - Symbolic Link File
-    - 윈도우의 바로가기 역할 파일
-  - Device File
-    - HW 장치에 접근하기 위한 파일
-    - Unix 시스템의 독특한 동작
-    - file write : 연결된 장치에 동작 신호를 보냄
-    - file read : 연결된 장치에 상태 값을 읽음
+#### 파일의 종류
+- Regular File
+  - 일반 파일
+  - -로 표기됨
+- Directory File
+  - 리눅스 내부에서는 디렉토리도 '파일'로 취급
+- Symbolic Link File
+  - 윈도우의 바로가기 역할 파일
+- Device File
+  - HW 장치에 접근하기 위한 파일
+  - Unix 시스템의 독특한 동작
+  - file write : 연결된 장치에 동작 신호를 보냄
+  - file read : 연결된 장치에 상태 값을 읽음
 - 파일 종류의 확인 : file [파일명]
   - ELF 파일 : 리눅스 Binary파일의 Format 이름
     - 0과 1로 이뤄진 Binary 파일 내부에 구간별 어떤 정보인지 나타내는 규격화된 표준
     - "character special", "block special"은 Device 파일
 - 파일 위치 확인 : which [파일명]
- 
+
+#### 파일 소유권
+- 리눅스는 다중 사용자 시스템 : 여러명이 동시에 접속하여 사용할 수 있는 시스템
+- 파일의 소유자
+  - 여러 사람이 쓰는 Host에 존재하는 파일
+  - ls -al을 통해 확인 가능
+  - [소유자 user] [소유자 group]
+    - user : 누구의 파일인지를 나타냄
+    - group : 어느 그룹의 파일인지 나타냄
+    - 소유 user와 소유 group은 독립적
+    - user는 group에 반드시 속하지 않음
+    - user와 group에 속한 user들은 파일을 이용 가능
+
 ### 링크 파일
 - 링크 생성 : ln
   - -s : 심볼링 링크 
+- 프로그램을 /usr/bin/ 내부에 링크하면 어디서든 프로그램 실행 가능
 
+  | ./[프로그램명] | [프로그램명] |
+  | --- | --- |
+  | /home/[유저]/[프로그램명] | /usr/bin/[프로그램명] |
 
 ### VI editor
 
