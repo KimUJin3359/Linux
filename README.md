@@ -63,19 +63,19 @@
 - 리눅스에서 폴더 = Directory
 - 우분투 GUI에서는 폴더라고 부름
 
-| Windows | Linux |
-| --- | --- |
-| Program Files | /bin |
-| Windows\System | /sbin |
-| 사용자 | Home |
+  | Windows | Linux |
+  | --- | --- |
+  | Program Files | /bin |
+  | Windows\System | /sbin |
+  | 사용자 | Home |
 
 - 링크 파일 : 윈도우의 바로가기
 
 ### 리눅스 쉘 프로그래밍
 
-| GUI(Graphic UI) | CLI(Command Line Interface) |
-| --- | --- |
-| 그래픽 기반 | 글자 기반|
+  | GUI(Graphic UI) | CLI(Command Line Interface) |
+  | --- | --- |
+  | 그래픽 기반 | 글자 기반|
 
 - CLI의 장점
   - GUI OS는 버전 업그레이드 시 UI가 바뀌나, CLI 명령어는 거의 비슷
