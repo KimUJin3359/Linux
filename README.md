@@ -176,6 +176,7 @@
     - 시스템 운영을 위한 계정
     - 로그인 불가능
 - 확인 : cat /etc/passwd
+- 현재 사용자 확인 : users
 - 사용자 추가 : adduser [계정명]
 - 사용자 제거 : deluser --remove-home [계정명]
 - 사용자 전환 : su [계정명]
@@ -223,6 +224,10 @@
     - "character special", "block special"은 Device 파일
 - 파일 위치 확인 : which [파일명]
  
+### 링크 파일
+- 링크 생성 : ln
+  - -s : 심볼링 링크 
+
 
 ### VI editor
 
