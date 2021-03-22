@@ -121,6 +121,7 @@
   - apt show "패키지이름" : 패키지 정보 확인
   - apt purge : 패키지 삭제
   - apt remove : 설정 파일은 남겨두고, 파일을 삭제
+  - apt로 설치한 프로그램은 /usr
 
   | apt | apt-cache | apt-get |
   | --- | --- | --- |
@@ -201,6 +202,27 @@
 - 그룹을 삭제 : delgroup [그룹명]
 - 그룹에 사용자 추가 : gpasswd -a [계정명] [그룹명]
 - 그룹에 사용자 제거 : gpasswd -d [계정명] [그룹명]
+
+### 파일과 소유권
+- 파일의 종류
+  - Regular File
+    - 일반 파일
+    - -로 표기됨
+  - Directory File
+    - 리눅스 내부에서는 디렉토리도 '파일'로 취급
+  - Symbolic Link File
+    - 윈도우의 바로가기 역할 파일
+  - Device File
+    - HW 장치에 접근하기 위한 파일
+    - Unix 시스템의 독특한 동작
+    - file write : 연결된 장치에 동작 신호를 보냄
+    - file read : 연결된 장치에 상태 값을 읽음
+- 파일 종류의 확인 : file [파일명]
+  - ELF 파일 : 리눅스 Binary파일의 Format 이름
+    - 0과 1로 이뤄진 Binary 파일 내부에 구간별 어떤 정보인지 나타내는 규격화된 표준
+    - "character special", "block special"은 Device 파일
+- 파일 위치 확인 : which [파일명]
+ 
 
 ### VI editor
 
