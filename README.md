@@ -408,13 +408,77 @@
 #### 디렉토리 용량 확인
 - ls -alh
   - 읽기 쉽게 KB / MB 등 단위로 출력
-  - 용량 확인시 정확하지 않음
-  - 실제 Disk에 저장될 때는 4KB 단위로 저장됨
+  - 용량 확인시 **정확하지 않음**
+  - 실제 Disk에 저장될 때는 **4KB 단위로 저장**됨
     - File System 및 SSD에서 최소 저장 사이즈를 4KB 단위로 취급(다량 데이터 관리를 위함)
 - du
-  - 실제 저장되는 크기로 표기
+  - **실제 저장되는 크기**로 표기
   - -h 옵션 : 사람이 보기좋은 형식으로 표현 
 
+---
+
+### 프로세스
+#### 프로세스 모니터링
+- **프로그램 : CPU 명령어(2진수)들이 모여있는 파일**
+  - CPU는 **하나의 명령어**씩 처리
+- Disk에비해 **Memor**y의 수행속도가 빠름
+  - CPU + 메모리 : 폰 노이만 구조
+  - 프로그램을 실행시키자마자, 즉시 **메모리에 적재(Loading)**
+- 프로세스 : **Disk**로부터 **메모리에 적재**된 프로그램을 프로세스
+  - **메모리에 적재되어 현재 실행중인 프로그램**
+  - 메모리
+    - Kernel Space : **커널**이 동작하는 메모리 공간
+    - User Space : **app**이 동작하는 메모리 공간
+  - User Level Process
+    - User Space에 생성되는 프로세스를 뜻함
+    - App을 수행하면, 유저 레벨 프로세스가 됨
+  - Kernel Level Process
+    - Kerner Space에 생성되는 프로세스를 뜯ㅅ함
+    - 커널이 사용하는 프로세스
+    - 커널 쓰레드라고도 함
+
+#### 프로세스 관리
+- PID : Process ID
+  - PID 1번 (systemd)
+    - 커널을 초기화 하는 동작들을 수행(로그인 세션 관리/ 장치 관리/ 로그 처리 수행)
+    - 부트로더 -> 커널 -> systemd 프로세스
+    - 커널 부팅 후 첫번째로 실행
+  - PID 2번 (kthreadd)
+    - 커널 공간에서 실행하는 커널 프로세스의 생성을 담당
+    - 모든 커널 스레드의 부모 스레드
+- Foreground Process : **사용자가 Run**하거나, **상호작용 가능**한 프로세스
+- Background Process : 사용자와 **독립적으로 실행**되는 프로세스
+  - 명렁어에 &를 넣으면 Background Process로 동작
+- ps
+  - 프로세스 정보 및 관리 명령어
+  - User Space에 있는 User Level Process 정보가 출력
+  - -e 옵션: Kernel Space Process까지 출력
+- fg
+  - Background Process를 Foreground로 이동
+  - 가장 최근에 Background로 이동한 프로세스를 다시 꺼내옴 
+- kill
+  - 죽이는 명령어가 아니라 하나의 프로세스에 특정 시그널을 보내는 프로그램
+  - -9 옵션 : SIGKILL 시그널을 보냄
+- ctrl + Z
+  - 현재 프로세스를 백그라운드로 전환
+  - Stopped 상태로 표기
+    - 일반적인 OS에 없는 Process State
+    - Background 모드 진입시 사용자 입력을 기다리는 stdin으로 인해 "STOP" signal 발생
+    - "CONT" signal로 재개
+  - fg를 누르면 돌아옴
+
+#### 실시간 모니터링 유틸리티
+- top
+  - 시스템 모니터링에 대표적인 유틸리티
+  - 윈도우의 작업 관리자에 해당
+  - top : uptime(시간 / 부팅 후 시간 / 현재 접속자 / CPU 부하 정도)
+  - load average : loadavg(시스템이 받고있는 부하정도 - 1분, 5분, 15분 시스템 부하 평균)
+  - tasks
+    - total : 전체 프로세스의 개수
+    - running : 실행 중 프로세스의 개수
+    - sleeping : I/O나 event를 기다리는 프로세스의 개수
+    - stopped : ctrl z와 같은 stop 시그널을 받은 프로세스의 개수
+    - zombie : 프로세스가 종료되었지만 OS 내부 시스템 자원 해지가 안된 
 ---
 
 ### VI editor
