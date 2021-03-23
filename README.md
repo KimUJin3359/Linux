@@ -12,8 +12,8 @@
 - [파일과 소유권](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%86%8C%EC%9C%A0%EA%B6%8C)
 - [권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 - [시스템 모니터링](https://github.com/KimUJin3359/Linux#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81)
-- [리눅스 배포방법](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95)
 - [VI Editor](https://github.com/KimUJin3359/Linux#vi-editor)
+- [리눅스 배포방법](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95)
 
 ---
 
@@ -368,6 +368,86 @@
   - USB에 연결된 장치 목록을 알 수 있음
   - -t 옵션 : 계층 구조로 USB 디바이스 정보를 보여줌
 
+#### OS 정보 확인
+- 리눅스 배포판 버전 
+  - /etc/os-release
+  - 배포판 마다 파일 이름이 바뀔 수 있음 (Centos의 경우 : /etc/centos-release)
+  - **LSB(Linux Standard Base)**
+    - Linux 배포판들 끼리 표준화 (ISO)
+    - POSIX, File System, System Call, Package Format
+  - lsb_release -a
+    - 리눅스 배포판의 상세 정보를 출력
+    - lsb_release 명령어는 모든 배포판마다 같음
+- 리눅스 커널 버전
+  - /proc/version
+  - uname -r
+    - 예시 : 5.4.0-47-generic
+    - **디바이스 드라이버 개발 > 커널 버전을 확인**하면서 환경 세팅
+    - 현재 **커널버전에 맞는 프로그램 등을 설치**할 때 확인 필수
+- OS 32/64 bit
+  - lscpu의 Architecture
+  - 18.04 LTS버전부터 32 bit 리눅스 지원하지 않음
+- User 정보
+  - who
+    - Host에 접속한 사용자 보기
+    - 접속한 시간이 출력
+    - -r 옵션 : 사용자의 run level 확인 가능
+    
+    | Level 5 | Level 3 |
+    | 그래픽 User | SSH 같은 Terminal로 접속한 CLI 유저 |
+    
+#### 네트워크 설정 확인
+- ip addr
+  - ip 주소를 확인하는 명령어
+- **ifconfig**
+  - net-tools 패키지 설치 필요
+  - NIC별 설정정보 확인
+    - 네트워크 인터페이스 : 네트워크 설정, 네트워크 카드 정보를 포함한 연결 통로, 인터페이스
+  - lo : 루프백 네트워크 인터페이스
+
+#### 디렉토리 용량 확인
+- ls -alh
+  - 읽기 쉽게 KB / MB 등 단위로 출력
+  - 용량 확인시 정확하지 않음
+  - 실제 Disk에 저장될 때는 4KB 단위로 저장됨
+    - File System 및 SSD에서 최소 저장 사이즈를 4KB 단위로 취급(다량 데이터 관리를 위함)
+- du
+  - 실제 저장되는 크기로 표기
+  - -h 옵션 : 사람이 보기좋은 형식으로 표현 
+
+---
+
+### VI editor
+
+| vi | vim |
+| --- | --- |
+| 40년 전 만들어진 editor | vi 업그레이드 버전 |
+| 키보드 방향키가 없어 h, j, k, l을 방향키 대용으로 사용 | 방향키 사용 |
+| 기본 설치 | apt install vim을 이용한 설치 필요 |
+
+- :w : 저장
+- :q : 종료
+
+#### visual 모드
+- v를 눌러 visual 모드 진입 가능
+- y : 복사
+- p : 붙여넣기
+- u : 실행취소
+- ctrl + r : 다시 실행
+
+#### command 모드
+- G : 맨 아랫줄로 이동
+- gg : 맨 윗줄로 이동
+- dd : 한 줄 삭제
+- /찾을단어 : 검색
+  - n : 다음 검색
+  - shift n : 이전 검색
+- %s /찾을단어/바꿀단어/g
+  - 찾을 단어를 전체 
+
+#### Edit 모드
+- i를 눌러 모드 진입 가능
+
 ---
 
 ### 리눅스 배포방법
@@ -430,36 +510,3 @@
 3. tar + gz
 4. tar + bz2
 - 압축률 : zip < gz < bz2 < xz
-
----
-
-### VI editor
-
-| vi | vim |
-| --- | --- |
-| 40년 전 만들어진 editor | vi 업그레이드 버전 |
-| 키보드 방향키가 없어 h, j, k, l을 방향키 대용으로 사용 | 방향키 사용 |
-| 기본 설치 | apt install vim을 이용한 설치 필요 |
-
-- :w : 저장
-- :q : 종료
-
-#### visual 모드
-- v를 눌러 visual 모드 진입 가능
-- y : 복사
-- p : 붙여넣기
-- u : 실행취소
-- ctrl + r : 다시 실행
-
-#### command 모드
-- G : 맨 아랫줄로 이동
-- gg : 맨 윗줄로 이동
-- dd : 한 줄 삭제
-- /찾을단어 : 검색
-  - n : 다음 검색
-  - shift n : 이전 검색
-- %s /찾을단어/바꿀단어/g
-  - 찾을 단어를 전체 
-
-#### Edit 모드
-- i를 눌러 모드 진입 가능
