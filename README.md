@@ -12,6 +12,7 @@
 - [파일과 소유권](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%86%8C%EC%9C%A0%EA%B6%8C)
 - [권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 - [시스템 모니터링](https://github.com/KimUJin3359/Linux#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81)
+- [프로세스](https://github.com/KimUJin3359/Linux#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4)
 - [VI Editor](https://github.com/KimUJin3359/Linux#vi-editor)
 - [리눅스 배포방법](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95)
 
