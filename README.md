@@ -12,7 +12,7 @@
 - [파일과 소유권](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%86%8C%EC%9C%A0%EA%B6%8C)
 - [권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 - [시스템 모니터링](https://github.com/KimUJin3359/Linux#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81)
-- [프로세스](https://github.com/KimUJin3359/Linux#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4)
+- [시스템 모니터링 - 프로세스란?](https://github.com/KimUJin3359/Linux#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4)
 - [VI Editor](https://github.com/KimUJin3359/Linux#vi-editor)
 - [리눅스 배포방법](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95)
 
@@ -176,15 +176,15 @@
 
 #### 종류
 - sh : 본 쉘, 쉘들의 기반
-- bash : 본 쉘 업그레이드 형 쉘
+- **bash : 본 쉘 업그레이드 형 쉘**
 - rbash : restricted bash(제한된 사용자의 쉘)
 - dash : 암키스트쉘(구 버전 리눅스에 사용됨)
   - 임베디드 리눅스에서 자주 쓰임
 
 #### 정의
 - Shell은 프로그램
-  - 운영체제 내부에 접근하기 위한 프로그램
-  - 커널을 감싼다는 의미에서 **껍데기**라는 용어를 사용
+  - **운영체제 내부에 접근**하기 위한 프로그램
+  - 커널을 감싼다는 의미에서 껍데기라는 용어를 사용
 
 #### 임베디드에서 Shell
 - Shell은 OS에 반드시 포함되어야 되는 것은 아님
@@ -217,11 +217,11 @@
   - System 계정
     - 시스템 운영을 위한 계정
     - 로그인 불가능
-- 확인 : cat /etc/passwd
+- **확인 : cat /etc/passwd**
 - 현재 사용자 확인 : users
-- 사용자 추가 : adduser [계정명]
-- 사용자 제거 : deluser --remove-home [계정명]
-- 사용자 전환 : su [계정명]
+- **사용자 추가 : adduser [계정명]**
+- **사용자 제거 : deluser --remove-home [계정명]**
+- **사용자 전환 : su [계정명]**
 - 사용 종료 : exit
 - 루트로 사용자 전환 : sudo su
 
@@ -242,10 +242,10 @@
   - 특정 그룹만 쓸 수 있는 디렉토리 설정 가능
   - 특정 그룹만 실행 시킬 수 있는 프로그램 설정 가능
 - 확인 : groups [계정명]
-- 그룹에 포함된 유저 확인 : cat /etc/group | grep [그룹명]
-- 그룹을 추가 : addgroup [그룹명]
-- 그룹을 삭제 : delgroup [그룹명]
-- 그룹에 사용자 추가 : gpasswd -a [계정명] [그룹명]
+- **그룹에 포함된 유저 확인 : cat /etc/group | grep [그룹명]**
+- **그룹을 추가 : addgroup [그룹명]**
+- **그룹을 삭제 : delgroup [그룹명]**
+- **그룹에 사용자 추가 : gpasswd -a [계정명] [그룹명]**
 - 그룹에 사용자 제거 : gpasswd -d [계정명] [그룹명]
 
 ---
@@ -281,7 +281,7 @@
     - 소유 user와 소유 group은 독립적
     - user는 group에 반드시 속하지 않음
     - user와 group에 속한 user들은 파일을 이용 가능
-- 파일 소유권 변경하기 : chown [소유 user]:[소유 group] [파일명]
+- **파일 소유권 변경하기 : chown [소유 user]:[소유 group] [파일명]**
   - 유저만 변경 : chown [소유 user] [파일명]
   - -R 옵션 : 디렉토리 내부에 있는 모든 파일들 한꺼번에 설정
 
@@ -450,18 +450,18 @@
 - Foreground Process : **사용자가 Run**하거나, **상호작용 가능**한 프로세스
 - Background Process : 사용자와 **독립적으로 실행**되는 프로세스
   - 명렁어에 &를 넣으면 Background Process로 동작
-- ps
-  - 프로세스 정보 및 관리 명령어
+- **ps**
+  - **프로세스 정보 및 관리** 명령어
   - User Space에 있는 User Level Process 정보가 출력
   - -e 옵션: Kernel Space Process까지 출력
-- fg
+- **fg**
   - Background Process를 Foreground로 이동
-  - 가장 최근에 Background로 이동한 프로세스를 다시 꺼내옴 
-- kill
-  - 죽이는 명령어가 아니라 하나의 프로세스에 특정 시그널을 보내는 프로그램
-  - -9 옵션 : SIGKILL 시그널을 보냄
-- ctrl + Z
-  - 현재 프로세스를 백그라운드로 전환
+  - 가장 최근에 **Background로 이동한 프로세스를 다시 꺼내옴** 
+- **kill**
+  - 죽이는 명령어가 아니라 하나의 프로세스에 **특정 시그널을 보내는 명령어**
+  - **-9 옵션 : SIGKILL** 시그널을 보냄
+- **ctrl + Z**
+  - 현재 프로세스를 **백그라운드로 전환**
   - Stopped 상태로 표기
     - 일반적인 OS에 없는 Process State
     - Background 모드 진입시 사용자 입력을 기다리는 stdin으로 인해 "STOP" signal 발생
@@ -469,8 +469,8 @@
   - fg를 누르면 돌아옴
 
 #### 실시간 모니터링 유틸리티
-- top
-  - 시스템 모니터링에 대표적인 유틸리티
+- **top**
+  - **시스템 모니터링**에 대표적인 유틸리티
   - 윈도우의 작업 관리자에 해당
   - top : uptime(시간 / 부팅 후 시간 / 현재 접속자 / CPU 부하 정도)
   - load average : loadavg(시스템이 받고있는 부하정도 - 1분, 5분, 15분 시스템 부하 평균)
@@ -479,7 +479,8 @@
     - running : 실행 중 프로세스의 개수
     - sleeping : I/O나 event를 기다리는 프로세스의 개수
     - stopped : ctrl z와 같은 stop 시그널을 받은 프로세스의 개수
-    - zombie : 프로세스가 종료되었지만 OS 내부 시스템 자원 해지가 안된 
+    - zombie : 프로세스가 종료되었지만 OS 내부 시스템 자원 해지가 안된 프로세스의 개수
+ 
 ---
 
 ### VI editor
