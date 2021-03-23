@@ -5,13 +5,13 @@
 - [리눅스란](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4%EB%9E%80)
 - [패키지 관리 시스템](https://github.com/KimUJin3359/Linux#%ED%8C%A8%ED%82%A4%EC%A7%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C)
 - [리눅스 파일시스템](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C)
-- [시스템 모니터링](https://github.com/KimUJin3359/Linux#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81)
 - [리눅스 쉘 프로그래밍](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%89%98-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 - [쉘이란](https://github.com/KimUJin3359/Linux#shell)
 - [사용자 계정](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B3%84%EC%A0%95)
 - [사용자 그룹](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B7%B8%EB%A3%B9)
 - [파일과 소유권](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%86%8C%EC%9C%A0%EA%B6%8C)
 - [권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
+- [시스템 모니터링](https://github.com/KimUJin3359/Linux#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81)
 - [리눅스 배포방법](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95)
 - [VI Editor](https://github.com/KimUJin3359/Linux#vi-editor)
 
@@ -93,56 +93,6 @@
   | 사용자 | Home |
 
 - 링크 파일 : 윈도우의 바로가기
-
----
-
-### 시스템 모니터링
-#### 컴퓨터 성능 확인
-- 컴퓨터 성능
-  - **CPU** : CPU 이름 / 정보
-  - **Memory** : Memory 용량 / 정보
-  - **Disk** : Disk 용량 / 정보
-
-#### 시스템 정보확인
-- /proc 디렉토리
-  - 실제 존재하는 디렉토리가 아닌 **가상 디렉토리**
-  - **커널이 가지고 있는 정보**를 파일처럼 열어서 확인 가능
-  - 커널이 관리하는 정보를 읽을 때사용
-    - **프로세스, 하드웨어 등 관련 정보**
-- cpuinfo
-  - /proc/cpuinfo
-  - 각 코어의 정보, 클럭 수, 모델명 등 주요정보
-- meminfo
-  - /proc/meminfo
-  - 메모리 정보를 확인
-- free -h
-  - **메모리 요약된 정보** 확인
-  - total = used + free + cache
-  - available : 하나의 app이 현재 사용할 수 있는 메모리 추정 계산치 
-  - 스왑 : RAM이 부족한 경우, 하드디스크를 일시적으로 메모리처럼 사용하는 공간
-- scsi
-  - /proc/scsi/scsi
-  - **디스크 장치**의 정보
-  - 저장장치(SCSI)
-    - 리눅스에서는** SSD, HDD 모두 SCSI 장치로 인식**
-    - 과거 컴퓨터에서 장치를 Serial방식으로 연결하는 인터페이스 표준 중 하나
-    - 현재는 SATA와 같은 SCSI Interface보다 빠른 성능을 가진 인터페이스 사용
-- fdisk -l
-  - 디스크 세부 정보 확인
-  - fdisk : 파티션 관리 유틸리티
-- proc 대신 **lscpu, lsmem, lsscsi, lsusb 등을 사용하여 쉽게 정보 확인** 가능
-- lsscsi
-  - scsi 장치 명령어
-  - scsi 장비 별 연결된 Device File 확인 가능
-  - Device File : HW와 연결된 파일, 이 파일에 신호를 주면 연결된 HW에 영향을끼침
-    - 디스크 장치파일 이름 짓는 규칙
-    - 빨리 발견하는 것부터 이름 선정
-    - sd* (SCSI DISK) 
-    - sr* (SCSI CD-ROM) : 리눅스 커널이 발견하는 SCSI CD-ROM 장치의 이름
-    - sg* (SCSI GENERIC) : SCSI 인터페이스를 사용하는 기타 장치들
-- lsusb
-  - USB에 연결된 장치 목록을 알 수 있음
-  - -t 옵션 : 계층 구조로 USB 디바이스 정보를 보여줌
 
 ---
 
@@ -367,6 +317,56 @@
 - r : **디렉토리 내부 파일 확인** 권한
 - w : **디렉토리 내 파일 생성, 삭제** 권한
 - x : 디렉토리로 **진입 여부** 결정
+
+---
+
+### 시스템 모니터링
+#### 컴퓨터 성능 확인
+- 컴퓨터 성능
+  - **CPU** : CPU 이름 / 정보
+  - **Memory** : Memory 용량 / 정보
+  - **Disk** : Disk 용량 / 정보
+
+#### 시스템 정보확인
+- /proc 디렉토리
+  - 실제 존재하는 디렉토리가 아닌 **가상 디렉토리**
+  - **커널이 가지고 있는 정보**를 파일처럼 열어서 확인 가능
+  - 커널이 관리하는 정보를 읽을 때사용
+    - **프로세스, 하드웨어 등 관련 정보**
+- cpuinfo
+  - /proc/cpuinfo
+  - 각 코어의 정보, 클럭 수, 모델명 등 주요정보
+- meminfo
+  - /proc/meminfo
+  - 메모리 정보를 확인
+- free -h
+  - **메모리 요약된 정보** 확인
+  - total = used + free + cache
+  - available : 하나의 app이 현재 사용할 수 있는 메모리 추정 계산치 
+  - 스왑 : RAM이 부족한 경우, 하드디스크를 일시적으로 메모리처럼 사용하는 공간
+- scsi
+  - /proc/scsi/scsi
+  - **디스크 장치**의 정보
+  - 저장장치(SCSI)
+    - 리눅스에서는** SSD, HDD 모두 SCSI 장치로 인식**
+    - 과거 컴퓨터에서 장치를 Serial방식으로 연결하는 인터페이스 표준 중 하나
+    - 현재는 SATA와 같은 SCSI Interface보다 빠른 성능을 가진 인터페이스 사용
+- fdisk -l
+  - 디스크 세부 정보 확인
+  - fdisk : 파티션 관리 유틸리티
+- proc 대신 **lscpu, lsmem, lsscsi, lsusb 등을 사용하여 쉽게 정보 확인** 가능
+- lsscsi
+  - scsi 장치 명령어
+  - scsi 장비 별 연결된 Device File 확인 가능
+  - Device File : HW와 연결된 파일, 이 파일에 신호를 주면 연결된 HW에 영향을끼침
+    - 디스크 장치파일 이름 짓는 규칙
+    - 빨리 발견하는 것부터 이름 선정
+    - sd* (SCSI DISK) 
+    - sr* (SCSI CD-ROM) : 리눅스 커널이 발견하는 SCSI CD-ROM 장치의 이름
+    - sg* (SCSI GENERIC) : SCSI 인터페이스를 사용하는 기타 장치들
+- lsusb
+  - USB에 연결된 장치 목록을 알 수 있음
+  - -t 옵션 : 계층 구조로 USB 디바이스 정보를 보여줌
 
 ---
 
