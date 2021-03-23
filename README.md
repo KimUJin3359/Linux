@@ -481,7 +481,11 @@
     - sleeping : I/O나 event를 기다리는 프로세스의 개수
     - stopped : ctrl z와 같은 stop 시그널을 받은 프로세스의 개수
     - zombie : 프로세스가 종료되었지만 OS 내부 시스템 자원 해지가 안된 프로세스의 개수
- 
+- 좀비 프로세스
+  - program은 multi process, multi threading을 통해 여러개를 실행
+  - 부모 process가 자식 process 들의 PID 등 정보를 관리
+  - 스스로 만들어진 process가 아니라서, PID를 알 수 없고 부모가 존재하지 않는 프로세스
+  - 그렇기 때문에 할당된 디바이스나 자원을 반환할 수 없음
 ---
 
 ### VI editor
