@@ -395,6 +395,7 @@
     - -r 옵션 : 사용자의 run level 확인 가능
     
     | Level 5 | Level 3 |
+    | --- | --- |
     | 그래픽 User | SSH 같은 Terminal로 접속한 CLI 유저 |
     
 #### 네트워크 설정 확인
