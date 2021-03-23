@@ -10,7 +10,7 @@
 - [사용자 계정](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B3%84%EC%A0%95)
 - [사용자 그룹](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B7%B8%EB%A3%B9)
 - [파일과 소유권](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%86%8C%EC%9C%A0%EA%B6%8C)
-- [파일 권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
+- [권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 - [리눅스 배포방법](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95)
 - [VI Editor](https://github.com/KimUJin3359/Linux#vi-editor)
 
@@ -142,6 +142,14 @@
 - ping : 네트워크 신호 
 - date : 현재 시간을 출력
 - uptime : 현재시간과 부팅된 후 지난 시간 출력
+- stat : 특정 파일에 대한 세부 정보를 확인
+  - stat [파일명]
+  - stat [디렉토리명]
+  - Inode : 파일의 고유 번호
+  - Uid : 파일 소유권이 있는 User의 고유 번호
+  - Gid : 파일 소유권이 있는 Group의 고유 번호
+  - Modify : 파일 내용 변경 시간
+  - Change : 파일 권한, 소유권 변경 시간
 - apt install : 패키지 설치
 - apt list : 전체 패키지 목록 확인
   - --installed옵션 : 설치된 패키지 확인
@@ -286,21 +294,28 @@
 
 ---
 
-### 파일 권한 이해하기
+### 권한 이해하기
 - 소유 User의 파일 사용 권한 설정
 - 소유 Group의 파일 사용 권한 설정
 - 소유자가 아닌 user들(other)에 대해 권한 설정
 
 #### 권한 확인
-- r : 읽기
-- w : 쓰기
-- x : 실행
-- rwx : 777 등 이진수로 표현
 - 권한 확인 : ls -al
   - 첫 문자를 제외한 처음 세 글자 : 소유 user의 권한
   - 다음 세 글자 : 소유 group의 권한
   - 마지막 세 글자 : 소유 user가 아닌 사람들의 권한
 - 권한 설정 : chmod [권한] [파일명]
+  - rwx : 777 등 이진수로 표현
+
+#### 파일 권한 이해하기
+- r : 파일을 읽을 수 있는 권한
+- w : 파일을 쓸 수 있는 권한
+- x : 파일을 실행할 수 있는 권한
+
+#### 디렉토리 권한 이해하기
+- r : 디렉토리 내부 파일 확인 권한
+- w : 디렉토리 내 파일 생성, 삭제 권한
+- x : 디렉토리로 진입 여부 결정
 
 ---
 
