@@ -212,30 +212,6 @@
     명령어
   fi
   ```
-  ```
-  #!/bin/bash
-
-  arr=(30 50 10 30 40 25) 
-  idx=0
-
-  for((i=0;i<${#arr[@]};i++))
-  do
-    if((${arr[i]} >= 30))
-    then
-      idx=$((idx + 1))
-    fi  
-  done
-  echo $((idx))
-  ```
-- 함수
-  ```
-  msg()
-  {
-    ...
-  }
-  
-  msg
-  ```
 
 #### Bash Shell Script
 - Bourne Shell Script 호환성
@@ -281,6 +257,30 @@
   do
     ...
   done
+  ```
+  ```
+  #!/bin/bash
+
+  arr=(30 50 10 30 40 25) 
+  idx=0
+
+  for((i=0;i<${#arr[@]};i++))
+  do
+    if((${arr[i]} >= 30))
+    then
+      idx=$((idx + 1))
+    fi  
+  done
+  echo $((idx))
+  ```
+- 함수
+  ```
+  msg()
+  {
+    ...
+  }
+  
+  msg
   ```
 
 #### 둘 다 공부하는 이유
