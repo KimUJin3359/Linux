@@ -763,6 +763,15 @@
     echo "This Is $@"
   - This Is OK 출력  
   ```
+- $^ : 의존성 파일들을 나타내는 변수
+  ```
+  CC = gcc
+  FLAGS = -Wall -Wextra -Werror
+  TARGET = main
+  
+  TARGET: SRCS
+    ${CC} ${FLAGS} $^ -o $@ 
+  ```
 ---
 
 ### 리눅스 배포방법
