@@ -699,6 +699,66 @@
 
 ---
 
+### make 스크립트
+- Target이 반드시 1개 이상 존재해야 함
+  - make : 가장 위에 존재하는 Target 수행
+- Target 내부 들여쓰기는 Tab으로 처리
+  - 띄어쓰기 불가 
+- @ : 수행할 명령어 입력을 생략하고 결과만 출력
+  ```
+  FILE:
+    @gcc main.c -o main
+    @./main
+  ```
+- 의존성 타겟
+  ```
+  FIR: SEC THI
+    ...
+  SEC:
+    ...
+  THI:
+    ...
+  - SEC, THI 먼저 수행 후 FIR의 내용 수행 
+  ```
+- 변수 추가
+  - Make에서 매크로를 변수라고 부름
+  - 매크로 변수는 아무곳에 넣을 수 있음
+    - 가독성을 위해 최상단에 적어주는 것이 좋음
+  ```
+  CC = gcc
+  FLAG = -Werror -Wextra -Wall
+  
+  FILE:
+    $(CC) $(FLAG) ... -o main
+  ```
+- # : 주석
+- += : 변수 대입 기호
+  - 자동으로 띄어쓰기 한 칸이 추가됨
+  ```
+  SEN = "I"
+  SEN += "AM"
+  SEN += "AN"
+  SEN += "IRONMAN"
+  ```
+- := : Simple Equal
+  - Script 순서대로 현재 기준에서 값을 대입
+- = : Recursive Equal
+  ```
+  SEN = "I"
+  SEN += "AM"
+  SIMPLE := SEN
+  RECUR = SEN
+  SEN += "AN"
+  SEN += "IRONMAN"
+  
+  PRI:
+    @echo ${SIMPLE}
+    @echo ${RECUR}
+  - SIMPLE : I AM, RECUR : I AM AN IRONMAN 출력
+  ```
+  
+---
+
 ### 리눅스 배포방법
 - 압축 파일 형태로 배포하는 경우가 잦음
 - 패키지관리 도구로 배포
