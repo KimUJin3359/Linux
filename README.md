@@ -727,10 +727,10 @@
     - 가독성을 위해 최상단에 적어주는 것이 좋음
   ```
   CC = gcc
-  FLAG = -Werror -Wextra -Wall
+  CFLAGS = -Werror -Wextra -Wall
   
   FILE:
-    $(CC) $(FLAG) ... -o main
+    $(CC) $(CFLAGS) ... -o main
   ```
 - \# : 주석
 - += : 변수 대입 기호
@@ -747,8 +747,8 @@
   ```
   SEN = "I"
   SEN += "AM"
-  SIMPLE := SEN
-  RECUR = SEN
+  SIMPLE := ${SEN}
+  RECUR = ${SEN}
   SEN += "AN"
   SEN += "IRONMAN"
   
