@@ -7,6 +7,7 @@
 - [리눅스 파일시스템](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C)
 - [리눅스 쉘 프로그래밍](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%89%98-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 - [쉘이란](https://github.com/KimUJin3359/Linux#shell)
+- [쉘 프로그래밍](https://github.com/KimUJin3359/Linux/blob/master/README.md#shell-programming)
 - [사용자 계정](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B3%84%EC%A0%95)
 - [사용자 그룹](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B7%B8%EB%A3%B9)
 - [파일과 소유권](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%86%8C%EC%9C%A0%EA%B6%8C)
