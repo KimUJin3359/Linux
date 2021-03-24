@@ -757,7 +757,12 @@
     @echo ${RECUR}
   - SIMPLE : I AM, RECUR : I AM AN IRONMAN 출력
   ```
-  
+- $@ : Target을 나타내는 변수
+  ```
+  OK :
+    echo "This Is $@"
+  - This Is OK 출력  
+  ```
 ---
 
 ### 리눅스 배포방법
