@@ -5,9 +5,9 @@
 - [리눅스란](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4%EB%9E%80)
 - [패키지 관리 시스템](https://github.com/KimUJin3359/Linux#%ED%8C%A8%ED%82%A4%EC%A7%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C)
 - [리눅스 파일시스템](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C)
-- [리눅스 쉘 프로그래밍](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%89%98-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 - [쉘이란](https://github.com/KimUJin3359/Linux#shell)
 - [쉘 프로그래밍](https://github.com/KimUJin3359/Linux/blob/master/README.md#shell-programming)
+- [쉘 명령어]()
 - [사용자 계정](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B3%84%EC%A0%95)
 - [사용자 그룹](https://github.com/KimUJin3359/Linux#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B7%B8%EB%A3%B9)
 - [파일과 소유권](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%86%8C%EC%9C%A0%EA%B6%8C)
@@ -99,75 +99,6 @@
 
 ---
 
-### 리눅스 쉘 프로그래밍
-
-  | GUI(Graphic UI) | CLI(Command Line Interface) |
-  | --- | --- |
-  | 그래픽 기반 | 글자 기반|
-
-- CLI의 장점
-  - GUI OS는 버전 업그레이드 시 UI가 바뀌나, CLI 명령어는 거의 비슷
-  - 편리한 CLI 패키지 설치도구
-- 단축키
-  - 복사 : Ctrl + Insert
-  - 붙여넣기 : Shift + Insert
-  - 터미널 화면 멈추기 : Ctrl + S
-  - 터미널 화면 재생 : Ctrl + Q
-
-#### 명령어(쉘 명령어, /bin에 존재)
-- ls : 디렉토리 명령보기
-  - -a : all, 숨김파일까지 출력
-  - -l : list, 리스트 형태로 상세 표시
-  - -h : 용량을 보기 쉬운 K, G 단위로 나타냄
-- pwd : 현재 디렉토리 확인
-- clear : 화면 지우기
-- cd : 디렉토리 이동하기
-- touch : 새로운 빈 파일을 생성 / 이미 존재하는 파일이라면, 변경된 시간을 업데이트
-- rm : 파일을 삭제
-  - -r : 디렉토리 내부 파일까지 모두 삭제
-- mkdir : 디렉토리 생성
-  - -p : 디렉토리 하위메뉴까지 모두 한꺼번에 생성
-- rmdir : 디렉토리 삭제
-- mv : 파일 이동
-- cp : 파일 복사
-  - -r : 디렉토리 복사 
-- echo : 문자열 출력(쉘 스크립트 명령어)
-- cat : 파일 내용을 출력
-- find : 파일을 찾는 명령어 
-  - find [경로] -name [파일명]
-  - 파일명 wild card 사용 가능
-  - -type f : 파일만 찾기
-  - -type d : 디렉토리만 찾기
-- grep : 문자열 검색
-  - grep [찾을내용] [경로]
-  - -r : 내부 디렉토리에 있는 파일들도 모두 검색
-- history : 이전 기록들을 확인
-  - ![번호] : 기록된 명령어를 그대로 수행
-- ping : 네트워크 신호 
-- date : 현재 시간을 출력
-- uptime : 현재시간과 부팅된 후 지난 시간 출력
-- stat : 특정 파일에 대한 세부 정보를 확인
-  - stat [파일명]
-  - stat [디렉토리명]
-  - Inode : 파일의 고유 번호
-  - Uid : 파일 소유권이 있는 User의 고유 번호
-  - Gid : 파일 소유권이 있는 Group의 고유 번호
-  - Modify : 파일 내용 변경 시간
-  - Change : 파일 권한, 소유권 변경 시간
-- apt install : 패키지 설치
-- apt list : 전체 패키지 목록 확인
-  - --installed옵션 : 설치된 패키지 확인
-- apt show "패키지이름" : 패키지 정보 확인
-- apt purge : 패키지 삭제
-- apt remove : 설정 파일은 남겨두고, 파일을 삭제
-- apt로 설치한 프로그램은 /usr에 설치됨
-
-  | apt | apt-cache | apt-get |
-  | --- | --- | --- |
-  | apt-cache와 apt-get의 기능을 합친 멍령어 | 패키지 검색, 상세정보 확인 | 패키지 설치, 삭제 |
-
----
-
 ### Shell
 - **사용자**와 **커널** 사이의 **인터페이스**
   - 컴퓨터를 키면 OS가 부팅된 후 실행됨
@@ -237,6 +168,75 @@
   - bash 명령어로 실행
     - bash ./run.sh
   - source 명령어 사용을 권장(가독성 측면, 성능상 이득 없음)
+
+---
+
+### 쉘 명령어
+
+  | GUI(Graphic UI) | CLI(Command Line Interface) |
+  | --- | --- |
+  | 그래픽 기반 | 글자 기반|
+
+- CLI의 장점
+  - GUI OS는 버전 업그레이드 시 UI가 바뀌나, CLI 명령어는 거의 비슷
+  - 편리한 CLI 패키지 설치도구
+- 단축키
+  - 복사 : Ctrl + Insert
+  - 붙여넣기 : Shift + Insert
+  - 터미널 화면 멈추기 : Ctrl + S
+  - 터미널 화면 재생 : Ctrl + Q
+
+#### 명령어(쉘 명령어, /bin에 존재)
+- ls : 디렉토리 명령보기
+  - -a : all, 숨김파일까지 출력
+  - -l : list, 리스트 형태로 상세 표시
+  - -h : 용량을 보기 쉬운 K, G 단위로 나타냄
+- pwd : 현재 디렉토리 확인
+- clear : 화면 지우기
+- cd : 디렉토리 이동하기
+- touch : 새로운 빈 파일을 생성 / 이미 존재하는 파일이라면, 변경된 시간을 업데이트
+- rm : 파일을 삭제
+  - -r : 디렉토리 내부 파일까지 모두 삭제
+- mkdir : 디렉토리 생성
+  - -p : 디렉토리 하위메뉴까지 모두 한꺼번에 생성
+- rmdir : 디렉토리 삭제
+- mv : 파일 이동
+- cp : 파일 복사
+  - -r : 디렉토리 복사 
+- echo : 문자열 출력(쉘 스크립트 명령어)
+- cat : 파일 내용을 출력
+- find : 파일을 찾는 명령어 
+  - find [경로] -name [파일명]
+  - 파일명 wild card 사용 가능
+  - -type f : 파일만 찾기
+  - -type d : 디렉토리만 찾기
+- grep : 문자열 검색
+  - grep [찾을내용] [경로]
+  - -r : 내부 디렉토리에 있는 파일들도 모두 검색
+- history : 이전 기록들을 확인
+  - ![번호] : 기록된 명령어를 그대로 수행
+- ping : 네트워크 신호 
+- date : 현재 시간을 출력
+- uptime : 현재시간과 부팅된 후 지난 시간 출력
+- stat : 특정 파일에 대한 세부 정보를 확인
+  - stat [파일명]
+  - stat [디렉토리명]
+  - Inode : 파일의 고유 번호
+  - Uid : 파일 소유권이 있는 User의 고유 번호
+  - Gid : 파일 소유권이 있는 Group의 고유 번호
+  - Modify : 파일 내용 변경 시간
+  - Change : 파일 권한, 소유권 변경 시간
+- apt install : 패키지 설치
+- apt list : 전체 패키지 목록 확인
+  - --installed옵션 : 설치된 패키지 확인
+- apt show "패키지이름" : 패키지 정보 확인
+- apt purge : 패키지 삭제
+- apt remove : 설정 파일은 남겨두고, 파일을 삭제
+- apt로 설치한 프로그램은 /usr에 설치됨
+
+  | apt | apt-cache | apt-get |
+  | --- | --- | --- |
+  | apt-cache와 apt-get의 기능을 합친 멍령어 | 패키지 검색, 상세정보 확인 | 패키지 설치, 삭제 |
 
 ---
 
