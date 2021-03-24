@@ -169,6 +169,34 @@
     - bash ./run.sh
   - source 명령어 사용을 권장(가독성 측면, 성능상 이득 없음)
 
+#### Bourn Shell Script
+- 변수 생성
+  - 변수이름=값
+  - 모든 값들은 **문자열로** 취급
+  ```
+  #!/bin/bash
+  
+  temp=string
+  echo $temp
+  temp=$temp+str
+  echo $temp
+  - 출력 결과 : string, string+str
+  ```
+- 인자
+  - $1, $2, ...
+- 산술 연산
+  - 본 쉘에서는 사칙연산 불가능
+  - 산술연산 프로그램을 사용
+    - expr 프로그램
+    - 어퍼스트로피(`) 사용
+    ```
+    num=50
+    num=`expr $num + 50`
+    echo $num
+    - 출력 결과 : 150
+    ```
+- 주석 : #
+ 
 ---
 
 ### 쉘 명령어
