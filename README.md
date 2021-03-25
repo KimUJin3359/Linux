@@ -674,6 +674,12 @@
 
 ### Build System
 - 빌드 프로세스를 설정해주고, 그대로 수행하는 프로그램
+- Build System, Build Tool, Build Automation System 모두 같은 뜻
+- 분야별 Build System
+  - Web : Maven, Jenkins
+  - Android App : Gradle
+  - Windows App : MS Build, CMake
+  - Embedded : Make, CMake, yocto
 
 #### Build
 - 소스코드에서 실행 가능한 Software로 변환하는 과정(Process)
@@ -698,7 +704,38 @@
   - 속도 향상
     - 수정된 파일만 재 컴파일하는 기능
     - 재컴파일된 파일에서 의존성 있는 파일만 재컴파일
+- CMake
+  - 작성하기 힘든 Makefile을 자동으로 만들어주는 Tool
+  - 소스 코드 내용을 파악하여 스스로 Makefile을 생성
+  - 방식
+    - CMakefile을 직접 작성
+    - cmake 명령어로 makefile을 제작
+    - make 명령어로 Build 시작
+  - 사용 이유
+    - 거대한 프로젝트라도 Makefile을 쉽게 작성할 수 있음
+    - 리눅스 소스코드를 윈도우에서 빌드할 수 있음
+- Yocto Project
+  - 리눅스 재단의 프로젝트
+  - 임베디드 리눅스를 쉽게 빌드해주는 Build System
+    - 심각하게 오래걸리며, 용량도 큼 
 
+#### CMake
+- 설치하기
+  - sudo apt install g++ make
+  - sudo apt install cmake -y
+- CMakeLists.txt 파일 생성
+  - ADD_EXECUTABLE("실행파일명" "소스파일명")
+    - 의존 파일들을 이용하여, 최종 빌드 파일을 만들어내는 명령어
+    - 이 명령어를 반복하여 써서, 실행파일을 여러개 생성 가능 
+  - 의존 파일을 띄어쓰기 간격으로 적음
+  - 헤더 파일은 생략해도 됨
+- cmake ./CMakeLists.txt
+  - cmake . 도 가능
+  - make파일 생성 완료
+- make : 빌드 실행
+- make clean : make 시 생성되었던 실행파일, object 파일들을 제거
+- make help : makefile의 target들을 출력
+- 
 ---
 
 ### make 스크립트
