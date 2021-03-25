@@ -764,14 +764,29 @@
   - This Is OK 출력  
   ```
 - $^ : 의존성 파일들을 나타내는 변수
+  - 타겟 zoo는 monkey.o, elephant.o에 의존적
+  - monkey.o, elephant.o가 조금이라도 변경되면 아래 gcc를 수행
+  - 즉, 소스 코드가 변경되면 재컴파일
+- $< : 현재 타겟보다 최근에 변경된 종속 항목 변수
+  - 확장자 규칙에서만 사용 가능
   ```
-  CC = gcc
-  FLAGS = -Wall -Wextra -Werror
-  TARGET = main
-  
-  TARGET: SRCS
-    ${CC} ${FLAGS} $^ -o $@ 
+  C = gcc 
+  NAME = zoo 
+  SRCS = zoo.c\
+         elephant.c\
+         monkey.c
+  OBJS = ${SRCS:.c=.o}
+
+  .c.o :
+      $(CC) -c $<
+
+  $(NAME) : $(OBJS)
+      $(CC) $^ -o $@
+
+  clean :
+      rm *.o
   ```
+- gccmakedep : 의존성 파일을 검사  
 ---
 
 ### 리눅스 배포방법
