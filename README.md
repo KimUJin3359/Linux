@@ -732,10 +732,20 @@
 - cmake ./CMakeLists.txt
   - cmake . 도 가능
   - make파일 생성 완료
+  - CMakeLists.txt 파일을 변경하였다면, make 수행 시 자동으로 Makefile이 새로 갱신 됨
 - make : 빌드 실행
 - make clean : make 시 생성되었던 실행파일, object 파일들을 제거
 - make help : makefile의 target들을 출력
-- 
+
+#### CMake의 명령어
+- MESSAGE ("msg") : make 시 콘솔에 메세지를 출력
+- SET ("변수명" "값1" "값2" ...)
+  ```
+  SET (EXEC run)
+  SET (SRCS run.c ft.c)
+  ADD_EXECUTABLE(${EXEC} ${SRCS})
+  ```
+
 ---
 
 ### make 스크립트
