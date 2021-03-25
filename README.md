@@ -769,7 +769,9 @@
   - 즉, 소스 코드가 변경되면 재컴파일
 - $< : 현재 타겟보다 최근에 변경된 종속 항목 변수
   - 확장자 규칙에서만 사용 가능
+  - 의존성 파일에서 가장 앞에 것을 의미
   ```
+- $? : 의존성 파일 중 수정된 파일을 의미하는 변수   
   C = gcc 
   NAME = zoo 
   SRCS = zoo.c\
@@ -787,6 +789,136 @@
       rm *.o
   ```
 - gccmakedep : 의존성 파일을 검사  
+---
+
+### makefile 제작 과정
+- 1단계 : make 기본 문법대로 진행
+  ```
+  test: test1.o test2.o test3.o
+    gcc -o test test1.o test2.o test3.o
+
+  test1.o: test1.c a.h b.h
+    gcc -c test1.c
+
+  test2.o: test2.c a.h c.h
+    gcc -c test2.c
+
+  test3.o: test3.c a.h b.h c.h
+    gcc -c test3.c
+  ```
+
+- 2단계 : clean 추가  
+  ```
+  clean:
+    rm test1.o test2.o test3.o
+  ```
+
+- 3단계 : dep 추가(의존성 확인
+  ```
+  dep:
+    gccmakedep test1.c test2.c test3.c
+  ```
+
+- 4단계 : 매크로 추가
+  ```
+  OBJS = test1.o\
+       test2.o\
+       test3.o
+
+  test: ${OBJS}
+    gcc -o test ${OBJS}
+
+  test1.o: test1.c a.h b.h 
+    gcc -c test1.c
+
+  test2.o: test2.c a.h c.h 
+    gcc -c test2.c
+
+  test3.o: test3.c a.h b.h c.h 
+    gcc -c test3.c
+
+  clean:
+    rm ${OBJS} test
+
+  dep:
+    gccmakedep test1.c test2.c test3.c
+  ```
+  
+- 5단계 : 내장 매크로
+  ```
+  CC = gcc
+  # -g : debug
+  # -Wall : warning
+  # -O2 : optimization
+  CFLAGS = -c -g -O2 -Wall
+  OBJS = test1.o\
+         test2.o\
+         test3.o
+
+  test: ${OBJS}
+      gcc -o $@ $^
+
+  test1.o: test1.c a.h b.h
+      ${CC} ${CFLAGS} $<
+
+  test2.o: test2.c a.h c.h
+      ${CC} ${CFLAGS} $?
+
+  test3.o: test3.c a.h b.h c.h
+      ${CC} ${CFLAGS} $*.c
+
+  clean:
+      rm ${OBJS} test
+
+  dep:
+      gccmakedep test1.c test2.c test3.c
+  ```
+  
+- 6단계 : 확장자 규칙(SUFFIXES)
+  - .SUFFIXES : Make파일이 관심을 갖는 확장자 리스트  
+  - .c.o : .o파일과 매칭되는 .c파일을 찾았을 경우 명령어를 수행한다는 의미
+  ```
+  CC = gcc
+  CFLAGS = -c -g -O2 -Wall
+  OBJS = test1.o\
+         test2.o\
+         test3.o
+
+  test: ${OBJS}
+    gcc -o $@ $^
+
+  .c.o:
+    ${CC} ${CFLAGS} $< -I ./
+
+  clean:
+    rm ${OBJS} test
+
+  dep:
+    gccmakedep test1.c test2.c test3.c
+  ```
+
+- 7단계 : 확장자 치환 이용
+  ```
+  CC = gcc
+  CFLAGS = -c -g -O2 -Wall
+  SRCS = test1.c\
+         test2.c\
+         test3.c
+  OBJS = ${SRCS:.c=.o}
+
+  test: ${OBJS}
+      gcc -o $@ $^
+
+  .c.o:
+      ${CC} ${CFLAGS} $< -I ./
+
+  clean:
+      rm ${OBJS} test
+
+  dep:
+      gccmakedep ${SRCS}
+  ```
+    
 ---
 
 ### 리눅스 배포방법
