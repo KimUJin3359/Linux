@@ -66,10 +66,20 @@
 ---
 
 ### Kernel Build
+- 커널 소스 코드 준비
+  - kernel.org에 접속하여 현재 동작중인 리눅스 소스코드 다운
+    - 커널 버전 번호
+      - X.Y.Z
+      - Major version(X) : 큰 변경, 이전 버전과 호환성 보장되지 않음
+      - Minor version(Y) : 구조 변경없이 기능 추가, 변경
+      - Path number(Z) : 주로 
+  - 일반적인 커널 코드 저장 디렉토리
+    - /usr/src : 커널헤더, 커널소스코드 저장하는 곳
+    - du ./* -sh : 현재 폴더의 모든 파일들의 용량 표시 
 - 커널 빌드 준비
   - ncurses : CLI 환경에서 GUI처럼 메뉴 기반 설정도구를 쓸 수 있도록 함
     - 커널 설정도구가 ncurses 기반으로 되어있음
-    - wget ftp://ftp.gnu.org/gnu/ncurses/
+    - wget https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz
     - tar xzf ncurses-6.2.tar.gz
     - cd ncurses-6.2
     - ./configure--prefix=/usr
