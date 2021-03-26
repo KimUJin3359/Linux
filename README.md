@@ -100,7 +100,7 @@
 - 커널이미지 빌드
   - 빌드시 커널이미지가 생성
   - make : 커널 이미지 생성
-  - make install : 빌드된 커널이 /boot 
+  - make install : 빌드된 커널이 /boot 디렉터리에 설치
 
 ---
 
