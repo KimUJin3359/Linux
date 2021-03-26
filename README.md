@@ -3,7 +3,7 @@
 ## 목차
 - [운영체제](https://github.com/KimUJin3359/Linux#%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C)
 - [리눅스란](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4%EB%9E%80)
-- [Kernel 빌드하기](https://github.com/KimUJin3359/Linux#kernel-build)
+- [Kernel](https://github.com/KimUJin3359/Linux#kernel)
 - [패키지 관리 시스템](https://github.com/KimUJin3359/Linux#%ED%8C%A8%ED%82%A4%EC%A7%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C)
 - [리눅스 파일시스템](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C)
 - [쉘이란](https://github.com/KimUJin3359/Linux#shell)
@@ -65,7 +65,8 @@
 
 ---
 
-### Kernel Build
+### Kernel
+#### Kernel 빌드
 - 커널 소스 코드 준비
   - kernel.org에 접속하여 현재 동작중인 리눅스 소스코드 다운
     - 커널 버전 번호
@@ -776,6 +777,35 @@
     - 북마크 리스트 보기/닫기 : shift + b
     - 북마크 리스트 삭제 : 리스트에서 선택 후 shfit + d
 
+#### CTags
+- ctag : 여러 프로그래밍 언어의 소스코드 탐색을 도와주는 툴
+  - 소스코드들을 분석하여 tags 파일에 정보를 기록
+  - 함수/변수 이름을 통해, 소스코드로 점프할 수 있게 해줌
+- universal-ctags
+  - ctags의 업그레이드 버전
+  - 필수 Library
+    - apt install autoconf automake python3-docutils libseccomp-dev libjansson-dev libyaml-dev libxml2-dev
+  - ctags 설치
+    - git clone https://github.com/universal-ctags/ctags.git
+    - cd ctags
+    - ./autogen.sh
+    - ./configure
+    - make
+    - sudo make install
+- ctags 사용
+  - ctags가 소스 코드를 분석 해야함
+    - 해당 디렉토리로 이동 후 ctags -R
+- tagbar
+  - vi 사이드 바에 태그들 리스트가 정리되어 출력 됨
+    - 함수들 이름이 정리되어있어 함수 파악이 편함
+  - 설치
+    - ~/.vimrc에서 Plugin 'majutsushi/tagbar' 입력
+    - vim에서 PluginInstall로 설치하기
+    - ~/.vimrc에서 nmap <F8> : TagbarToggle<CR> 입력
+    - vim환경에서 F8을 눌러 Tagbar를 컸다/껐다 할 수 있음
+  - 활용
+    - 함수 이름 선택 후 Enter 시 즉시 함수로 이동
+    - 목록 열기 단축키 : "O" 
 ---
 
 ### Build System
