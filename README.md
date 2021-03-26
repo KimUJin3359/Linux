@@ -673,8 +673,8 @@
 #### vim 명령어
 - vim 들어간 상태에서 입력
 - :version : vim 버전 확인
-  - + -> 설치됨
-  - - -> 설치안됨
+  - \+ -> 설치됨
+  - \- -> 설치안됨
 - :pwd : 현 디렉토리 출력
 - :cd <TAB> : 디렉토리 위치 옮김
 - :!ls : 
@@ -713,9 +713,9 @@
   - npm, pip처럼 플러그인들을 설치, 관리하는 플러그인
   1) 설치 : git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   2) 코드 가져오기 : https://github.com/VundleVim/Vundle.Vim#quick-start 의 Configure Plugins에서 코드 가져오기
-    - vi ~/.vimrc 파일에 붙여넣기
-    - call vundle#begin() ~ call vundle#end() 사이에 있는 플러그인들이 자동 설치 및 실행
-    - 원하는 플러그인 이름을 적어주면 됨
+     - vi ~/.vimrc 파일에 붙여넣기
+     - call vundle#begin() ~ call vundle#end() 사이에 있는 플러그인들이 자동 설치 및 실행
+     - 원하는 플러그인 이름을 적어주면 됨
   3) 플러그인 목록 일괄설치 : vim환경에서 :PluginInstall 입력
   - vundle을 이용하여 VI 플러그인을 쉽게 설치할 수 있음(어디에서든 원하는 환경 설정 가능)
 ---
