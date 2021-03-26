@@ -700,7 +700,8 @@
   - :bp : 이전 버퍼 보기
   - :bn : 다음 버퍼 보기
   - :bd : 버퍼 종료
-  - :buffe'숫자' : 숫자번째 버퍼로 이동
+  - :buffer'숫자' : 숫자번째 버퍼로 이동
+    - :b'숫자'도 가능
 
 #### vim 플러그인
 - global 플러그인
@@ -718,6 +719,25 @@
      - 원하는 플러그인 이름을 적어주면 됨
   3) 플러그인 목록 일괄설치 : vim환경에서 :PluginInstall 입력
   - vundle을 이용하여 VI 플러그인을 쉽게 설치할 수 있음(어디에서든 원하는 환경 설정 가능)
+
+#### NERD Tree
+- 설치
+  1) ~/.vimrc에서 call vundle#begin() 이 후 Plugin 'preservim/nerdtree' 입력
+  2) vim 환경에서 PluginInstall 수행
+- 실행
+  - :NERDTree 또는 :N + tab
+- 동작
+  - 창전환 Ctrl + w, 방향키
+  - 디렉토리 들어가기 : 디렉토리 선택 후 Enter
+    - 대문자 C를 누르면, 선택된 폴더 중심으로 Tree
+  - 파일 실행 : 파일 선택 후 Enter
+    - 파일 실행시 버퍼에 쌓이면서 open
+  - 분할하여 보기 : 파일 선택 후 i
+  - 숨김파일까지 모두 보기 : 대문자 I
+  - Bookmark
+    - 현재 선택된 폴더 Bookmark : :Bookmark
+    - 북마크 리스트 보기/닫기 : shift + b
+    - 북마크 리스트 삭제 : 리스트에서 선택 후 shfit + d
 ---
 
 ### Build System
