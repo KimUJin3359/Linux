@@ -65,7 +65,7 @@
 
 ---
 
-### Kerner Build
+### Kernel Build
 - 커널 빌드 준비
   - ncurses : CLI 환경에서 GUI처럼 메뉴 기반 설정도구를 쓸 수 있도록 함
     - 커널 설정도구가 ncurses 기반으로 되어있음
