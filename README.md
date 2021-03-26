@@ -3,6 +3,7 @@
 ## 목차
 - [운영체제](https://github.com/KimUJin3359/Linux#%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C)
 - [리눅스란](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4%EB%9E%80)
+- [Kernel 빌드하기](https://github.com/KimUJin3359/Linux#kernel-build)
 - [패키지 관리 시스템](https://github.com/KimUJin3359/Linux#%ED%8C%A8%ED%82%A4%EC%A7%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C)
 - [리눅스 파일시스템](https://github.com/KimUJin3359/Linux#%EB%A6%AC%EB%88%85%EC%8A%A4-%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C)
 - [쉘이란](https://github.com/KimUJin3359/Linux#shell)
@@ -14,7 +15,7 @@
 - [권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 - [시스템 모니터링](https://github.com/KimUJin3359/Linux#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81)
 - [시스템 모니터링 - 프로세스란?](https://github.com/KimUJin3359/Linux#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4)
-- [VI/VIM](https://github.com/KimUJin3359/Linux#VI/VIM)
+- [VI/VIM](https://github.com/KimUJin3359/Linux#vivim)
 - [Build System](https://github.com/KimUJin3359/Linux#build-system)
 - [Makefile 스크립트](https://github.com/KimUJin3359/Linux/blob/master/README.md#make-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8)
 - [Makefile 제작과정](https://github.com/KimUJin3359/Linux/blob/master/README.md#makefile-%EC%A0%9C%EC%9E%91-%EA%B3%BC%EC%A0%95)
@@ -61,6 +62,35 @@
   - **Busy Box**
     - 리눅스 기본 명령어 모음
   - GUI shell이 없는 리눅스 커널 + CLI shell + Busy Box
+
+---
+
+### Kerner Build
+- 커널 빌드 준비
+  - ncurses : CLI 환경에서 GUI처럼 메뉴 기반 설정도구를 쓸 수 있도록 함
+    - 커널 설정도구가 ncurses 기반으로 되어있음
+    - wget ftp://ftp.gnu.org/gnu/ncurses/
+    - tar xzf ncurses-6.2.tar.gz
+    - cd ncurses-6.2
+    - ./configure--prefix=/usr
+    - make
+    - make install
+  - flex /bison: 설정 값에 따라 C코드로 만들어주는 Library
+    - apt install flex bison
+  - SSL/TLS
+    - apt install libssl-dev
+- config 파일 가져오기
+  - 커널을 빌드하기위한 설정파일
+  - config 파일 위치 : /boot/config-'커널버전'
+    - 커널 버전 확인 : uname -r
+  - cp /boot/config/'커널버전' /'디렉터리'/.config
+- 커널 설정하기
+  - make menuconfig
+    - 커널 빌드 설정
+- 커널이미지 빌드
+  - 빌드시 커널이미지가 생성
+  - make : 커널 이미지 생성
+  - make install : 빌드된 커널이 /boot 
 
 ---
 
@@ -735,6 +765,7 @@
     - 현재 선택된 폴더 Bookmark : :Bookmark
     - 북마크 리스트 보기/닫기 : shift + b
     - 북마크 리스트 삭제 : 리스트에서 선택 후 shfit + d
+
 ---
 
 ### Build System
