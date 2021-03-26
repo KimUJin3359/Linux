@@ -670,6 +670,54 @@
 #### Edit 모드
 - i를 눌러 모드 진입 가능
 
+#### vim 명령어
+- vim 들어간 상태에서 입력
+- :version : vim 버전 확인
+  - + -> 설치됨
+  - - -> 설치안됨
+- :pwd : 현 디렉토리 출력
+- :cd <TAB> : 디렉토리 위치 옮김
+- :!ls : 
+  - ! -> ! + 쉘스크립트 명령어 : vi 잠시 나가서, 쉘 명령어를 수행하고 돌아옴
+- :history : history 보기
+- :new '파일명' : 새 화면 열기
+- ctrl + w, w : 화면 전환
+- ctrl + w, 방향키 위 아래 : 화면 전환
+- ctrl + w, q : 화면 닫기
+- ctrl + w '숫자' - : 창 위로 좁히기
+- ctrl + w '숫자' + : 창 아래로 넓히기
+- ctrl + w '숫자' <, > : 창 좌우로 좁히기/넓히기
+- :open '파일명' : 현 화면에 열기
+- :help '명령어' : 쉘 스크립트 명령어가 아닌, VI 명령에 대한 도움말
+- q'매크로이름' : 매크로 저장 활성화
+  - q : 한번 더 누르면 OFF
+- yy : 한줄 복사
+- '숫자'p : 숫자만큼 붙여넣기
+- '숫자'dd : 숫자만큼 삭제
+- w '파일명' : 파일 만들기
+- vim '파일명' '파일명' '파일명'
+  - :ls : 버퍼 상태가 나타남 (%: 현재 보고있는 파일)
+  - :bp : 이전 버퍼 보기
+  - :bn : 다음 버퍼 보기
+  - :bd : 버퍼 종료
+  - :buffe'숫자' : 숫자번째 버퍼로 이동
+
+#### vim 플러그인
+- global 플러그인
+  - 일반적인 플러그인
+  - vim설치경로 / vim81 / plugin 디렉토리에서 관리
+- filetype 플러그인
+  - 특정 파일에서만 동작
+  - vim설치경로 / vim81 / ftplugin 디렉토리에서 관리
+- vundle 플러그인
+  - npm, pip처럼 플러그인들을 설치, 관리하는 플러그인
+  1) 설치 : git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  2) 코드 가져오기 : https://github.com/VundleVim/Vundle.Vim#quick-start 의 Configure Plugins에서 코드 가져오기
+    - vi ~/.vimrc 파일에 붙여넣기
+    - call vundle#begin() ~ call vundle#end() 사이에 있는 플러그인들이 자동 설치 및 실행
+    - 원하는 플러그인 이름을 적어주면 됨
+  3) 플러그인 목록 일괄설치 : vim환경에서 :PluginInstall 입력
+  - vundle을 이용하여 VI 플러그인을 쉽게 설치할 수 있음(어디에서든 원하는 환경 설정 가능)
 ---
 
 ### Build System
