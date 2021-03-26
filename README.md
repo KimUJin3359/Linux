@@ -14,7 +14,7 @@
 - [권한 이해하기](https://github.com/KimUJin3359/Linux#%ED%8C%8C%EC%9D%BC-%EA%B6%8C%ED%95%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 - [시스템 모니터링](https://github.com/KimUJin3359/Linux#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81)
 - [시스템 모니터링 - 프로세스란?](https://github.com/KimUJin3359/Linux#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4)
-- [VI Editor](https://github.com/KimUJin3359/Linux#vi-editor)
+- [VI/VIM](https://github.com/KimUJin3359/Linux#VI/VIM)
 - [Build System](https://github.com/KimUJin3359/Linux#build-system)
 - [Makefile 스크립트](https://github.com/KimUJin3359/Linux/blob/master/README.md#make-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8)
 - [Makefile 제작과정](https://github.com/KimUJin3359/Linux/blob/master/README.md#makefile-%EC%A0%9C%EC%9E%91-%EA%B3%BC%EC%A0%95)
@@ -639,7 +639,7 @@
   - 그렇기 때문에 할당된 디바이스나 자원을 반환할 수 없음
 ---
 
-### VI editor
+### VI/VIM
 
 | vi | vim |
 | --- | --- |
@@ -647,17 +647,18 @@
 | 키보드 방향키가 없어 h, j, k, l을 방향키 대용으로 사용 | 방향키 사용 |
 | 기본 설치 | apt install vim을 이용한 설치 필요 |
 
-- :w : 저장
-- :q : 종료
-
-#### visual 모드
+#### Visual 모드
 - v를 눌러 visual 모드 진입 가능
 - y : 복사
 - p : 붙여넣기
 - u : 실행취소
 - ctrl + r : 다시 실행
 
-#### command 모드
+#### Edit 모드
+- i를 눌러 모드 진입 가능
+- 코드 작성
+
+#### Command 모드 명령어
 - G : 맨 아랫줄로 이동
 - gg : 맨 윗줄로 이동
 - dd : 한 줄 삭제
@@ -666,12 +667,8 @@
   - shift n : 이전 검색
 - %s /찾을단어/바꿀단어/g
   - 찾을 단어를 전체 
-
-#### Edit 모드
-- i를 눌러 모드 진입 가능
-
-#### vim 명령어
-- vim 들어간 상태에서 입력
+- :w : 저장
+- :q : 종료
 - :version : vim 버전 확인
   - \+ -> 설치됨
   - \- -> 설치안됨
