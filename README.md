@@ -1,4 +1,4 @@
-# Linux
+# Linux_Shell_Programming
 
 ## 목차
 - [운영체제](https://github.com/KimUJin3359/Linux#%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C)
